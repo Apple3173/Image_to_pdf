@@ -25,7 +25,7 @@ for f in dirs:
     if os.path.isdir(os.path.join(cur_dir, f)):
         for sf in os.listdir(os.path.join(cur_dir,f)):
             if os.path.isdir(os.path.join(cur_dir, f, sf)):
-                types_1 = ("jpg", "png", "jpeg")
+                types_1 = ("jpg", "png", "jpeg","JPG","JPEG","PNG")
                 files_1 = []
                 for t in types_1:
                     files_1 += glob.glob(os.path.join(cur_dir, f, sf, r"*."+t))
@@ -34,7 +34,7 @@ for f in dirs:
                         with open(os.path.join(cur_dir, f, sf, f"{sf}.pdf"), "wb") as f1:
                             f1.write(img2pdf.convert([file  for file in new_filelist_1]))
                             new_filelist_1.clear()
-        types_2 =  ("jpg", "png", "jpeg")
+        types_2 =  ("jpg", "png", "jpeg","JPG","JPEG","PNG")
         files_2 = []
         for i in types_2:
             files_2 += glob.glob(os.path.join(cur_dir, f, r"*."+i))
