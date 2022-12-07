@@ -12,7 +12,7 @@ cur_dir = os.getcwd()
 dirs = os.listdir(cur_dir)
 
 if dirs:
-    types_0 = ("jpg", "png", "jpeg")
+    types_0 = ("jpg", "png", "jpeg","JPG","JPEG","PNG")
     files_0 = []
     for j in types_0:
         files_0 += glob.glob(os.path.join(cur_dir,r"*."+j))
