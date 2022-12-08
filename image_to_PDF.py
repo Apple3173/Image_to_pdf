@@ -4,7 +4,6 @@ import img2pdf
 from natsort import natsorted
 from tkinter import filedialog
 
-dir = 'ダイアログが表示された時に初めのパスを指定する'
 fld = filedialog.askdirectory(initialdir = dir)
 
 os.chdir(fld)
