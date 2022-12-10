@@ -3,6 +3,7 @@ import glob
 import img2pdf
 from natsort import natsorted
 from tkinter import filedialog
+from fastprogress.fastprogress import  progress_bar
 
 fld = filedialog.askdirectory(initialdir = dir)
 
@@ -13,14 +14,14 @@ dirs = os.listdir(cur_dir)
 if dirs:
     types_0 = ("jpg", "png", "jpeg","JPG","JPEG","PNG")
     files_0 = []
-    for j in types_0:
+    for j in progress_bar(types_0):
         files_0 += glob.glob(os.path.join(cur_dir,r"*."+j))
         new_filelist_0 = natsorted(files_0)
         if new_filelist_0:
             with open(os.path.join(cur_dir, f"{cur_dir}.pdf"), "wb") as f0:
                 f0.write(img2pdf.convert([file  for file in new_filelist_0]))
                 new_filelist_0.clear()
-for f in dirs:
+for f in progress_bar(dirs):
     if os.path.isdir(os.path.join(cur_dir, f)):
         for sf in os.listdir(os.path.join(cur_dir,f)):
             if os.path.isdir(os.path.join(cur_dir, f, sf)):
