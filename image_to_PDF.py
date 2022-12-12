@@ -12,7 +12,7 @@ cur_dir = os.getcwd()
 dirs = os.listdir(cur_dir)
 
 if dirs:
-    types_0 = ("jpg", "png", "jpeg","JPG","JPEG","PNG")
+    types_0 = ("jpg", "png", "jpeg","avif","JPG","JPEG","PNG","AVIF")
     files_0 = []
     for j in progress_bar(types_0):
         files_0 += glob.glob(os.path.join(cur_dir,r"*."+j))
@@ -25,7 +25,7 @@ for f in progress_bar(dirs):
     if os.path.isdir(os.path.join(cur_dir, f)):
         for sf in os.listdir(os.path.join(cur_dir,f)):
             if os.path.isdir(os.path.join(cur_dir, f, sf)):
-                types_1 = ("jpg", "png", "jpeg","JPG","JPEG","PNG")
+                types_1 = ("jpg", "png", "jpeg","avif","JPG","JPEG","PNG","AVIF")
                 files_1 = []
                 for t in types_1:
                     files_1 += glob.glob(os.path.join(cur_dir, f, sf, r"*."+t))
@@ -34,7 +34,7 @@ for f in progress_bar(dirs):
                         with open(os.path.join(cur_dir, f, sf, f"{sf}.pdf"), "wb") as f1:
                             f1.write(img2pdf.convert([file  for file in new_filelist_1]))
                             new_filelist_1.clear()
-        types_2 =  ("jpg", "png", "jpeg","JPG","JPEG","PNG")
+        types_2 = ("jpg", "png", "jpeg","avif","JPG","JPEG","PNG","AVIF")
         files_2 = []
         for i in types_2:
             files_2 += glob.glob(os.path.join(cur_dir, f, r"*."+i))
